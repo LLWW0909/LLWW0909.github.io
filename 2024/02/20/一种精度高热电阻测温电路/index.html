@@ -23,20 +23,15 @@
 <meta property="og:site_name" content="Luwei">
 <meta property="og:description" content="要精确的测温，常用的就是PT100&#x2F;PT1000这种铂电阻了，传感器的阻值随着温度变化，通入电流电压源，才经过采样 -&gt; 放大 -&gt; ADC 转换的过程。粗略的测比较简单，但是想精确的测量，电路上还需要多多学习。 测温方案之概要：　　使用铂电阻进行测温过程中，存在的导线内阻误差，及使用线性拟合出的阻值温度转换公式存在温度偏移问题，测温方案着重考虑消除导线内阻产生的误差">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://llww0909.github.io/2024/02/20/%E4%B8%80%E7%A7%8D%E7%B2%BE%E5%BA%A6%E9%AB%98%E7%83%AD%E7%94%B5%E9%98%BB%E6%B5%8B%E6%B8%A9%E7%94%B5%E8%B7%AF/image-20240220194238478-1708429365902-1.png">
-<meta property="og:image" content="https://llww0909.github.io/2024/02/20/%E4%B8%80%E7%A7%8D%E7%B2%BE%E5%BA%A6%E9%AB%98%E7%83%AD%E7%94%B5%E9%98%BB%E6%B5%8B%E6%B8%A9%E7%94%B5%E8%B7%AF/1-2304250U114458.png">
-<meta property="og:image" content="https://llww0909.github.io/2024/02/20/%E4%B8%80%E7%A7%8D%E7%B2%BE%E5%BA%A6%E9%AB%98%E7%83%AD%E7%94%B5%E9%98%BB%E6%B5%8B%E6%B8%A9%E7%94%B5%E8%B7%AF/1-2304250U123P7.png">
-<meta property="og:image" content="https://llww0909.github.io/2024/02/20/%E4%B8%80%E7%A7%8D%E7%B2%BE%E5%BA%A6%E9%AB%98%E7%83%AD%E7%94%B5%E9%98%BB%E6%B5%8B%E6%B8%A9%E7%94%B5%E8%B7%AF/1-2304250U132644.png">
-<meta property="og:image" content="https://llww0909.github.io/2024/02/20/%E4%B8%80%E7%A7%8D%E7%B2%BE%E5%BA%A6%E9%AB%98%E7%83%AD%E7%94%B5%E9%98%BB%E6%B5%8B%E6%B8%A9%E7%94%B5%E8%B7%AF/1-2304250U141Z3.png">
-<meta property="og:image" content="https://llww0909.github.io/2024/02/20/%E4%B8%80%E7%A7%8D%E7%B2%BE%E5%BA%A6%E9%AB%98%E7%83%AD%E7%94%B5%E9%98%BB%E6%B5%8B%E6%B8%A9%E7%94%B5%E8%B7%AF/1-2304250U150401.png">
-<meta property="og:image" content="https://llww0909.github.io/2024/02/20/%E4%B8%80%E7%A7%8D%E7%B2%BE%E5%BA%A6%E9%AB%98%E7%83%AD%E7%94%B5%E9%98%BB%E6%B5%8B%E6%B8%A9%E7%94%B5%E8%B7%AF/1-2304250U200942.png">
-<meta property="og:image" content="https://llww0909.github.io/2024/02/20/%E4%B8%80%E7%A7%8D%E7%B2%BE%E5%BA%A6%E9%AB%98%E7%83%AD%E7%94%B5%E9%98%BB%E6%B5%8B%E6%B8%A9%E7%94%B5%E8%B7%AF/1-2304250U210V6.png">
+<meta property="og:image" content="https://llww0909.github.io/img/image-20240220194238478.png">
 <meta property="article:published_time" content="2024-02-20T08:47:24.000Z">
-<meta property="article:modified_time" content="2024-02-21T04:59:07.385Z">
+<meta property="article:modified_time" content="2024-02-21T05:58:51.704Z">
 <meta property="article:author" content="Luwei">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://llww0909.github.io/2024/02/20/%E4%B8%80%E7%A7%8D%E7%B2%BE%E5%BA%A6%E9%AB%98%E7%83%AD%E7%94%B5%E9%98%BB%E6%B5%8B%E6%B8%A9%E7%94%B5%E8%B7%AF/image-20240220194238478-1708429365902-1.png">
+<meta name="twitter:image" content="https://llww0909.github.io/img/image-20240220194238478.png">
   
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
   
   
   <title>利用铂电阻的高精度测温电路 - Luwei</title>
@@ -77,7 +72,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"llww0909.github.io","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"llww0909.github.io","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":["post"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -273,6 +268,14 @@
 
     
     
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
   </div>
 
 
@@ -321,7 +324,7 @@
 <h4 id="双恒流源法"><a href="#双恒流源法" class="headerlink" title="双恒流源法"></a>双恒流源法</h4><p>　　为达到最佳三线式RTD配置，需要用到两个完全匹配的电流源。AD7792&#x2F;AD7793 具备两个匹配良好的电流源，非常适合此应用场景。如果只使用一个电流源Iout1，由于激励电流流经RL1，引线电阻将产生误差。</p>
 <p>　　这时使用第二个电流源补偿激励电流流经RL1所产生的误差。 假设两个电流源相等，同时RL1 &#x3D; RL2，电流源Iout2 经过RL2 时产生的误差电压就与RL1上的误差电压相同了。 由于两处的电压是共模电压，AIN1的+-之间是没有误差的，由此完成线阻误差的补偿。</p>
 <p>　　利用前面的两个电流源，还可以提供ADC采样的基准电压。这里要用到一个精密电阻Rref，经过Rref的电流为Iout1+Iout2。这一设计可以确保模拟电压输入范围同基准电压呈比例变化，基准电压的同步变化可以补偿因激励电流的温漂而导致的模拟输入电压误差。</p>
-<p><img src="/2024/02/20/%E4%B8%80%E7%A7%8D%E7%B2%BE%E5%BA%A6%E9%AB%98%E7%83%AD%E7%94%B5%E9%98%BB%E6%B5%8B%E6%B8%A9%E7%94%B5%E8%B7%AF/image-20240220194238478-1708429365902-1.png" srcset="/img/loading.gif" lazyload alt="image">　　<br>　　AD7793芯片内置低噪声、带有三个差分模拟输入的24位Σ-△ADC型ADC,内部集成了10μA、210μA及1mA激励电流源和仪表放大器，可以将源阻抗直接置于前端，均方根(RMS) 噪声最低为40nV。</p>
+<p><img src="/2024/02/20/%E4%B8%80%E7%A7%8D%E7%B2%BE%E5%BA%A6%E9%AB%98%E7%83%AD%E7%94%B5%E9%98%BB%E6%B5%8B%E6%B8%A9%E7%94%B5%E8%B7%AF/image-20240220194238478.png" srcset="/img/loading.gif" lazyload alt="image">　　<br>　　AD7793芯片内置低噪声、带有三个差分模拟输入的24位Σ-△ADC型ADC,内部集成了10μA、210μA及1mA激励电流源和仪表放大器，可以将源阻抗直接置于前端，均方根(RMS) 噪声最低为40nV。</p>
 <p>　　芯片自带基准源，同时支持外部基准电压，设计采用外部基准电压，可以消除由于恒流源波动导致参考电压变化带入的误差。采样电路设计如图4所示。</p>
 <p>　　图21 是由AD7793芯片内部输出的恒流源，大小为1mA， RL1、RL2、RL3、RL4是Pt1000导线内阻，Rt为Pt1000电阻，Re为电阻阻值。AD7793采用双极性模式，则Pt1000测量结果为:<br><img src="/2024/02/20/%E4%B8%80%E7%A7%8D%E7%B2%BE%E5%BA%A6%E9%AB%98%E7%83%AD%E7%94%B5%E9%98%BB%E6%B5%8B%E6%B8%A9%E7%94%B5%E8%B7%AF/1-2304250U114458.png" srcset="/img/loading.gif" lazyload alt="img"><br>　　上式中，Code 为AD读取的采样值，N为AD芯片位数,AIN为待测热电阻电压值，GAIN 为芯片增益值，Vref是 外部基准电压，即Re电阻的电压值。AD采样芯片外部参考电压为4. 5V，热电阻两侧待测电压最大值为4.21V，即增益值GAIN设置为1。由Rt的表达式可以得出，电流源波动误差通过使用外部基准电压设计，可以完全消除，同时也完全消除热电阻导线内阻影响，热电阻阻值测量误差最终只与电阻Re的精度和AD7793芯片性能有关。</p>
 <h4 id="电阻选型与设计"><a href="#电阻选型与设计" class="headerlink" title="电阻选型与设计"></a>电阻选型与设计</h4><p>　　AD7793采样到的信号需要送入FPGA中进行滤波处理，因此它的输出更新速度不能过慢，AD793 的输出更新速率与分辨率位数是反比关系，需要兼顾更新速率与分辨率位数，取更新速率为33. 2Hz，此时分辨率位数为21位。<br>　　芯片恒流源值分为三个:10μA、210μA， 1mA。假设想要温度测量精度达到0.01℃，电阻分辨率需要达到0.0391Ω，即使用210μA恒流源电压测量分辨精度达到0. 00821mV，使用1mA恒流源式电压分辨率达到0.0391mV。由于芯片分辨率位21位，芯片满量程电压为5V，电压最小分辨率为: .<br><img src="/2024/02/20/%E4%B8%80%E7%A7%8D%E7%B2%BE%E5%BA%A6%E9%AB%98%E7%83%AD%E7%94%B5%E9%98%BB%E6%B5%8B%E6%B8%A9%E7%94%B5%E8%B7%AF/1-2304250U123P7.png" srcset="/img/loading.gif" lazyload alt="img"><br>　　此时电压最小分辨率均满足要求，而使用1mA恒流源电压最小分辨率是使用210μA恒流源的4.761音，使用1mA恒流源测量精度会更高，且抗干扰能力较强同时可以避免铂电阻因流过本身电流而产生的热效应。<strong>Pt1000热电阻</strong>在0℃~300℃是电阻变化范围为1000Ω ~2120. 515Ω变化，其电压变化范围则为1V~2. 120515V变化，使用两个热电阻串联，电压范围则可达到2V~4.2103V。串联热电阻不仅扩大了测量电压范围，省去外围运放电路，简化电路.结构，减小因运放自身产生的误差，同时最小电阻分辨率由0.0391Ω扩大到0.0782Ω，提高温度测量精度并提高靠干扰能力。<br>　　由Rt最终计算公式可知，通过降低Re本身误差可以保证系统测量精度。Rt 热电阻电压变化范围为2V~4. 2103V,则AD芯片参考电压设计为4.5V时满足系统测量要求，即电阻Re的值确定为4.5kΩ。将9个容差为0.01%，温溧为0.2ppm&#x2F;℃的500Ω电阻串联，可以有效地降低误差，如图5所示。<br><img src="/2024/02/20/%E4%B8%80%E7%A7%8D%E7%B2%BE%E5%BA%A6%E9%AB%98%E7%83%AD%E7%94%B5%E9%98%BB%E6%B5%8B%E6%B8%A9%E7%94%B5%E8%B7%AF/1-2304250U132644.png" srcset="/img/loading.gif" lazyload alt="img"> </p>
@@ -500,6 +503,30 @@
     </div>
   
   
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
   
   
 </div>
@@ -645,6 +672,8 @@
   <script>Fluid.plugins.imageCaption();</script>
 
   <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
 
 
